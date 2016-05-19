@@ -8,24 +8,36 @@ namespace MVCTutorial
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/Scripts/Libraries").Include(
+                "~/Scripts/libs/jquery/jquery-{version}.js",
+                "~/Scripts/libs/bootstrap/bootstrap.js",
+                "~/Scripts/libs/knockout/knockout-{version}.js",
+                "~/Scripts/libs/knockout/knockout.validation.js",
+                "~/Scripts/libs/kendo/kendo.all.min.js",
+                "~/Scripts/libs/kendo/kendo.aspnetmvc.min.js",
+                "~/Scripts/libs/knockout-kendo/knockout-kendo.js",
+                "~/Scripts/libs/require/require.js",
+                "~/Scripts/libs/modernizr/modernizr-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/Scripts/Application").Include(
+               "~/Scripts/app.js",
+               "~/Scripts/utils.js",
+               "~/Scripts/bindingHandlers.js",
+               "~/Scripts/_references.js"));
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/Scripts/Application").Include(
+                "~/Scripts/app.js",
+                "~/Scripts/utils.js",
+                "~/Scripts/bindingHandlers.js",
+                "~/Scripts/_references.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            bundles.Add(new StyleBundle("~/Content/Css").Include(
+                "~/Content/bootstrap/bootstrap.min.css",
+                "~/Content/bootstrap/bootstrap-theme.min.css",
+                "~/Content/kendo/kendo.common-bootstrap.min.css",
+                "~/Content/kendo/kendo.bootstrap.min.css",
+                "~/Content/Style.css"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
         }
     }
 }

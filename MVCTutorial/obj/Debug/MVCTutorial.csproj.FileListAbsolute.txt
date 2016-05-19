@@ -50,6 +50,5 @@ D:\Projects\MVCT\MVCTutorial\MVCTutorial\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Projects\MVCT\MVCTutorial\MVCTutorial\bin\Microsoft.Owin.Security.Google.xml
 D:\Projects\MVCT\MVCTutorial\MVCTutorial\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Projects\MVCT\MVCTutorial\MVCTutorial\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Projects\MVCT\MVCTutorial\MVCTutorial\obj\Debug\MVCTutorial.csprojResolveAssemblyReference.cache
 D:\Projects\MVCT\MVCTutorial\MVCTutorial\obj\Debug\MVCTutorial.dll
 D:\Projects\MVCT\MVCTutorial\MVCTutorial\obj\Debug\MVCTutorial.pdb
