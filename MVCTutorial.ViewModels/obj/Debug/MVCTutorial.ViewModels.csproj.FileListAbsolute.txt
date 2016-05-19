@@ -1,0 +1,5 @@
+D:\Projects\MVCT\MVCTutorial\MVCTutorial.ViewModels\bin\Debug\MVCTutorial.ViewModels.dll
+D:\Projects\MVCT\MVCTutorial\MVCTutorial.ViewModels\bin\Debug\MVCTutorial.ViewModels.pdb
+D:\Projects\MVCT\MVCTutorial\MVCTutorial.ViewModels\obj\Debug\MVCTutorial.ViewModels.csprojResolveAssemblyReference.cache
+D:\Projects\MVCT\MVCTutorial\MVCTutorial.ViewModels\obj\Debug\MVCTutorial.ViewModels.dll
+D:\Projects\MVCT\MVCTutorial\MVCTutorial.ViewModels\obj\Debug\MVCTutorial.ViewModels.pdb

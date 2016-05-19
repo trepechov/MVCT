@@ -1,0 +1,5 @@
+D:\Projects\MVCT\MVCTutorial\MVCTutorial.Services\bin\Debug\MVCTutorial.Services.dll
+D:\Projects\MVCT\MVCTutorial\MVCTutorial.Services\bin\Debug\MVCTutorial.Services.pdb
+D:\Projects\MVCT\MVCTutorial\MVCTutorial.Services\obj\Debug\MVCTutorial.Services.csprojResolveAssemblyReference.cache
+D:\Projects\MVCT\MVCTutorial\MVCTutorial.Services\obj\Debug\MVCTutorial.Services.dll
+D:\Projects\MVCT\MVCTutorial\MVCTutorial.Services\obj\Debug\MVCTutorial.Services.pdb
