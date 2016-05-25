@@ -25,18 +25,21 @@ namespace MVCTutorial
                "~/Scripts/bindingHandlers.js",
                "~/Scripts/_references.js"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/Application").Include(
-                "~/Scripts/app.js",
-                "~/Scripts/utils.js",
-                "~/Scripts/bindingHandlers.js",
-                "~/Scripts/_references.js"));
-
             bundles.Add(new StyleBundle("~/Content/Css").Include(
                 "~/Content/bootstrap/bootstrap.min.css",
                 "~/Content/bootstrap/bootstrap-theme.min.css",
                 "~/Content/kendo/kendo.common-bootstrap.min.css",
                 "~/Content/kendo/kendo.bootstrap.min.css",
                 "~/Content/Style.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/ddtf.js",
+                "~/Scripts/jquery.maskedinput.js",
+                "~/Scripts/pagination.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+                "~/Scripts/jquery-ui-{version}.js"));
 
         }
     }
