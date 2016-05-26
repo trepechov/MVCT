@@ -7,14 +7,16 @@ namespace MVCTutorial.DAL
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        static ApplicationDbContext()
-        {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
-        }
+       // static ApplicationDbContext()
+       // {
+       //     Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
+       // }
 
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
         }
+
+        public System.Data.Entity.DbSet<MVCTutorial.DAL.Entities.Testclass> Testclasses { get; set; }
     }
 }
