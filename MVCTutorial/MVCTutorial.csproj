@@ -167,8 +167,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -295,6 +293,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
     <Folder Include="Scripts\libs\kendo\telerik.kendoui.professional.2016.1.226.trial\apptemplates\dashboard\content\dataviz\map\js\" />
     <Folder Include="Scripts\libs\kendo\telerik.kendoui.professional.2016.1.226.trial\apptemplates\dashboard\content\employees\" />
     <Folder Include="Scripts\libs\kendo\telerik.kendoui.professional.2016.1.226.trial\apptemplates\dashboard\styles\fonts\" />
@@ -544,6 +543,20 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVCTutorial.DAL\MVCTutorial.DAL.csproj">
+      <Project>{92AD8750-AB43-409E-82B4-42C39DE89EAD}</Project>
+      <Name>MVCTutorial.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVCTutorial.Services\MVCTutorial.Services.csproj">
+      <Project>{57d86684-4816-4eb6-8188-8c65bff359fb}</Project>
+      <Name>MVCTutorial.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVCTutorial.ViewModels\MVCTutorial.ViewModels.csproj">
+      <Project>{B29CC9EA-82BB-4B43-B8B8-1DB56B46B46A}</Project>
+      <Name>MVCTutorial.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

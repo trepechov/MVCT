@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MVCTutorial.Models
+namespace MVCTutorial.ViewModels.Controllers.Account
 {
     public class ExternalLoginConfirmationViewModel
     {
