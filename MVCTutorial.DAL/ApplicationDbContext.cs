@@ -18,5 +18,7 @@ namespace MVCTutorial.DAL
         }
 
         public System.Data.Entity.DbSet<MVCTutorial.DAL.Entities.Testclass> Testclasses { get; set; }
+
+        public System.Data.Entity.DbSet<MVCTutorial.DAL.Entities.Location> Locations { get; set; }
     }
 }
