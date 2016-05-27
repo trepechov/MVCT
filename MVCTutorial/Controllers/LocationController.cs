@@ -8,17 +8,19 @@ using System.Web;
 using System.Web.Mvc;
 using MVCTutorial.DAL.Entities;
 using MVCTutorial.DAL;
+using MVCTutorial.Services;
 
 namespace MVCTutorial.Controllers
 {
     public class LocationController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private LocationPresentationService locationService = new LocationPresentationService();
 
         // GET: /Location/
         public ActionResult Index()
         {
-            return View(db.Locations.ToList());
+            return View(locationService.GetLocations());
         }
 
         // GET: /Location/Details/5

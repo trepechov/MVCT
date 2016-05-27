@@ -561,6 +561,10 @@
       <Project>{92AD8750-AB43-409E-82B4-42C39DE89EAD}</Project>
       <Name>MVCTutorial.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MVCTutorial.Services\MVCTutorial.Services.csproj">
+      <Project>{57d86684-4816-4eb6-8188-8c65bff359fb}</Project>
+      <Name>MVCTutorial.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MVCTutorial.ViewModels\MVCTutorial.ViewModels.csproj">
       <Project>{B29CC9EA-82BB-4B43-B8B8-1DB56B46B46A}</Project>
       <Name>MVCTutorial.ViewModels</Name>
