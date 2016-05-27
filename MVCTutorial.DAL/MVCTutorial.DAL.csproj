@@ -56,10 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Application\Class1.cs" />
+    <Compile Include="EntitiesConfiguration\HotelCfg.cs" />
+    <Compile Include="EntitiesConfiguration\LocationCfg.cs" />
+    <Compile Include="Entities\Application\Hotel.cs" />
     <Compile Include="Entities\Identity\ApplicationUser.cs" />
     <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="Entities\Location.cs" />
+    <Compile Include="Entities\Application\Location.cs" />
     <Compile Include="Entities\Testclass.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,19 +8,21 @@ using System.Web;
 using System.Web.Mvc;
 using MVCTutorial.DAL.Entities;
 using MVCTutorial.DAL;
+using MVCTutorial.DAL.Entities.Application;
 using MVCTutorial.Services;
+using MVCTutorial.ViewModels.Controllers.Location;
 
 namespace MVCTutorial.Controllers
 {
     public class LocationController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-        private LocationPresentationService locationService = new LocationPresentationService();
+        private readonly LocationPresentationService _locationService = new LocationPresentationService();
 
         // GET: /Location/
         public ActionResult Index()
         {
-            return View(locationService.GetLocations());
+            var list = _locationService.GetLocations();
+            return View(list);
         }
 
         // GET: /Location/Details/5
@@ -30,7 +32,8 @@ namespace MVCTutorial.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = db.Locations.Find(id);
+
+            var location = _locationService.GetLocationById(id.Value);
             if (location == null)
             {
                 return HttpNotFound();
@@ -45,16 +48,13 @@ namespace MVCTutorial.Controllers
         }
 
         // POST: /Location/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Country,City,DisplayName")] Location location)
+        public ActionResult Create([Bind(Include = "Id,Country,City,DisplayName")] LocationViewModel location)
         {
             if (ModelState.IsValid)
             {
-                db.Locations.Add(location);
-                db.SaveChanges();
+                _locationService.SaveLocation(location);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +68,8 @@ namespace MVCTutorial.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = db.Locations.Find(id);
+
+            var location = _locationService.GetLocationById(id.Value);
             if (location == null)
             {
                 return HttpNotFound();
@@ -77,16 +78,13 @@ namespace MVCTutorial.Controllers
         }
 
         // POST: /Location/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Country,City,DisplayName")] Location location)
+        public ActionResult Edit([Bind(Include = "Id,Country,City,DisplayName")] LocationViewModel location)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(location).State = EntityState.Modified;
-                db.SaveChanges();
+                _locationService.SaveLocation(location);
                 return RedirectToAction("Index");
             }
             return View(location);
@@ -99,7 +97,7 @@ namespace MVCTutorial.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = db.Locations.Find(id);
+            var location = _locationService.GetLocationById(id.Value);
             if (location == null)
             {
                 return HttpNotFound();
@@ -112,19 +110,8 @@ namespace MVCTutorial.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Location location = db.Locations.Find(id);
-            db.Locations.Remove(location);
-            db.SaveChanges();
+            _locationService.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
