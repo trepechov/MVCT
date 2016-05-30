@@ -31,14 +31,17 @@ namespace MVCTutorial.Services
             }
         }
 
-        public void SaveLocation(LocationViewModel model)
+        public int SaveLocation(LocationViewModel model)
         {
+            var entityId = 0;
             using (var db = new ApplicationDbContext())
             {
                 var location = LocationMapper.Map(model);
                 db.Entry(location).State = model.Id == 0 ? EntityState.Added : EntityState.Modified;
                 db.SaveChanges();
+                entityId = location.Id;
             }
+            return entityId;
         }
 
         public void Delete(int locationId)
