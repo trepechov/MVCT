@@ -1,0 +1,32 @@
+﻿@model System.Collections.Generic.IList<string>
+
+@{
+    ViewBag.Title = "My Roles";
+    var roleList = (ViewBag.RoleList as List<string>) ?? new List<string>();
+}
+
+<h2>My Roles</h2>
+
+@using (Html.BeginForm("Roles", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h4>Roles</h4>
+    <hr />
+    @Html.ValidationSummary(true)
+    
+    foreach (var role in roleList)
+    {
+        <div class="form-group">
+            @Html.Label(role, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.CheckBox("roles", Model.Contains(role), new { @class = "col-md-2 control-label", @value = role })
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Save" />
+        </div>
+    </div>
+}

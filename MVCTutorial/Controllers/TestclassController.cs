@@ -6,11 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using MVCTutorial.DAL.Entities;
 using MVCTutorial.DAL;
 
 namespace MVCTutorial.Models
 {
+    [Authorize(Roles = "Admin")]
     public class TestclassController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -14,6 +14,7 @@ using MVCTutorial.ViewModels.Controllers.Location;
 
 namespace MVCTutorial.Controllers
 {
+    [Authorize(Roles="Agent")]
     public class LocationController : Controller
     {
         private readonly LocationPresentationService _locationService = new LocationPresentationService();
