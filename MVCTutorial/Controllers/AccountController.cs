@@ -18,8 +18,6 @@ namespace MVCTutorial.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        List<string> RoleList = new List<string> { "Admin", "Agent", "Tourist" };
-
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
@@ -31,46 +29,6 @@ namespace MVCTutorial.Controllers
         }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
-
-        public async Task<ActionResult> Roles()
-        {
-            ViewBag.RoleList = RoleList;
-
-            var userId = User.Identity.GetUserId();
-            var roles = await UserManager.GetRolesAsync(userId);
-
-            return View(roles);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Roles(List<string> roles)
-        {
-            roles = roles ?? new List<string>();
-
-            var userId = User.Identity.GetUserId();
-            var existingRoles = await UserManager.GetRolesAsync(userId);
-            foreach (var role in roles)
-            {
-                if (!RoleList.Contains(role))
-                {
-                    continue;
-                }
-
-                if (!existingRoles.Contains(role))
-                {
-                    await UserManager.AddToRoleAsync(userId, role);
-                }
-            }
-
-            foreach (var roleToRemove in existingRoles.Except(roles))
-            {
-                await UserManager.RemoveFromRoleAsync(userId, roleToRemove);
-            }
-
-            AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
-        }
 
         //
         // GET: /Account/Login
