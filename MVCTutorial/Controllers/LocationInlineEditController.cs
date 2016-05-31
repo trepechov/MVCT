@@ -12,7 +12,7 @@ namespace MVCTutorial.Controllers
 {
     public class LocationInlineEditController : Controller
     {
-        private readonly LocationPresentationService locationPresentationService = new LocationPresentationService();
+        private readonly LocationPresentationService _locationPresentationService = new LocationPresentationService();
         
         // GET: /LocationInlineEdit/
         public ActionResult Index()
@@ -23,9 +23,9 @@ namespace MVCTutorial.Controllers
 
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
-            var locations = locationPresentationService.GetLocations();
+            var locations = _locationPresentationService.GetLocations();
             DataSourceResult result = locations.ToDataSourceResult(request);
-            return Json(locations);
+            return Json(result);
         }
 	}
 }

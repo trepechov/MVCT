@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Kendo.Mvc.Extensions;
 using MVCTutorial.DAL.Entities;
 using MVCTutorial.DAL;
 
