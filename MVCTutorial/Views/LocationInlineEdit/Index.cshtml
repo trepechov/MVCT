@@ -1,0 +1,41 @@
+﻿@using MVCTutorial.ViewModels.Controllers.Location
+
+@model dynamic
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@(Html.Kendo().Grid<LocationViewModel>()
+          .Name("locationsGrid")
+          .Columns(columns =>
+            {
+                columns.Bound(location => location.Id).Visible(false);
+                columns.Bound(location => location.City);
+                columns.Bound(location => location.Country);
+                columns.Bound(location => location.DisplayName).Title("Display Name");
+                columns.Command(commands =>
+                {
+                    commands.Edit(); // The "edit" command will edit and update data items.
+                   // commands.Destroy(); // The "destroy" command removes data items.
+                }).Title("Commands").Width(200);
+           })
+          .ToolBar(toolbar => toolbar.Create())
+          .Editable(editable => editable.Mode(GridEditMode.InLine)) // Use inline editing mode.
+          .DataSource(dataSource =>
+              dataSource.Ajax()
+                .Model(model =>
+                {
+                    model.Id(location => location.Id);
+                    model.Field(location => location.Id).Editable(false); // Make the ProductID property not editable.
+                })
+                .Create(create => create.Action("Create", "LocationInlineEdit")) // Action invoked when the user saves a new data item
+                .Read(read => read.Action("Read", "LocationInlineEdit"))  // Action invoked when the Гrid needs data.
+                .Update(update => update.Action("Update", "LocationInlineEdit"))  // Action invoked when the user saves an updated data item.
+               // .Destroy(destroy => destroy.Action("Destroy", "LocationInlineEdit")) // Action invoked when the user removes a data item.
+          )
+          .Pageable()
+          
+)

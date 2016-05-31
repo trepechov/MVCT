@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace MVCTutorial.Controllers
 {
-    //[Authorize(Roles="Admin")]
+   //[Authorize(Roles="Admin")]
     public class AdminController : Controller
     {
         private List<string> RoleList = new List<string> { "Admin", "Agent", "Tourist" };
